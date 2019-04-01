@@ -1,0 +1,26 @@
+23:35:17.813 [main] INFO  t.r.c.CheeringVoteApplication - Starting CheeringVoteApplication on LAPTOP-PATOD6PH with PID 4436 (started by 陌花采撷 in E:\IDEA projects\CheeringVote)
+23:35:17.815 [main] INFO  t.r.c.CheeringVoteApplication - The following profiles are active: dev
+23:35:19.489 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+23:35:19.523 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+23:35:19.721 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108ms. Found 0 repository interfaces.
+23:35:20.868 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheConfig' of type [team.redrock.cheeringvote.config.RedisCacheConfig$$EnhancerBySpringCGLIB$$5b924a34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:35:20.909 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d9836b60] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:35:22.289 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+23:35:22.324 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+23:35:22.346 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+23:35:22.347 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+23:35:22.363 [main] INFO  o.a.c.core.AprLifecycleListener - An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+23:35:22.365 [main] INFO  o.a.c.core.AprLifecycleListener - Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+23:35:22.365 [main] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+23:35:22.366 [main] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+23:35:23.706 [main] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+23:35:24.188 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:35:24.189 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6323 ms
+23:35:26.607 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+23:35:26.693 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+23:35:26.727 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+23:35:26.732 [main] INFO  t.r.c.CheeringVoteApplication - Started CheeringVoteApplication in 9.546 seconds (JVM running for 12.318)
+23:36:00.306 [scheduling-1] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+23:36:00.310 [scheduling-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+23:36:03.430 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:36:03.980 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
