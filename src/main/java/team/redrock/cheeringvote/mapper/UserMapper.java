@@ -21,4 +21,7 @@ public interface UserMapper {
     @Select("select nickname,polls,pollstatus from users where openid = #{openid} ")
     Voter findByOpenid(@Param("openid") String openid);
 
+    @Update("Update users set polls = 5, pollstatus = ''")
+    void refreshPoll();
+
 }

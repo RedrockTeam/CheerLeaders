@@ -26,35 +26,21 @@ public class Schedule {
 
     @Autowired
     private RedisTemplate<String ,Integer> pollRedisTemplate;
-//    @Resource
-//    UserMapper userMapper = SpringContextHolder.getBean(UserMapper.class);
+
     @Autowired
     CacheService cacheService = SpringContextHolder.getBean(CacheService.class);
     @Resource
     CheerleadersMapper cheerleadersMapper = SpringContextHolder.getBean(CheerleadersMapper.class);
-    @Scheduled(cron = "0 0/5 23 * * *")
+    @Scheduled(cron = "0 0 0 * * *")
     public void reflashPoll(){
-        System.out.println("定时任务启动");
-//        Map<String,Integer> map = new HashMap<>();
-//        Cursor<Map.Entry<Object, Object>> cursor = pollRedisTemplate.opsForHash().scan("Voter", ScanOptions.NONE);
-//        while(cursor.hasNext()){
-//            Map.Entry<Object, Object> entry = cursor.next();
-//            map.put((String) entry.getKey(),5);
-//            userMapper.insertUser((String)entry.getKey(),"",5);//这里有BUG
-//        }
-//        try {
-//            cursor.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        pollRedisTemplate.opsForHash().putAll("Voter",map);
-
+      log.info("start refresh voters");
+        cacheService.refreshVoter();
 
     }
 
-    @Scheduled(cron = "0 0/1 23 * * *")
+    @Scheduled(cron = "0 0 2 * * *")
     public void dataPersist(){
-        log.info("这里进行数据持久化");
+        log.info("to data persistence");
         Map<Integer,Integer> map = new HashMap<>();
         Cursor<Map.Entry<Object, Object>> cursor = pollRedisTemplate.opsForHash().scan("Cheerleaders", ScanOptions.NONE);
         while(cursor.hasNext()){
@@ -97,12 +83,6 @@ public class Schedule {
         }
     }
 
-
-    @CachePut(key = "#id")
-    public Cheerleader getCheerLeaderByDB(int id){
-        Cheerleader cheerleader = cheerleadersMapper.findById(id);
-        return cheerleader;
-    }
 
 
 }

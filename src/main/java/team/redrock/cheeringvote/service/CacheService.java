@@ -1,6 +1,7 @@
 package team.redrock.cheeringvote.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,11 @@ public class CacheService {
             return new Voter(nickname,polls,cheerStatus);
         }
         throw new ValidException("fail to get total users");
+    }
+
+    @CacheEvict(value = "Voter:",allEntries = true)
+    public void refreshVoter(){
+            userMapper.refreshPoll();
     }
 
 }

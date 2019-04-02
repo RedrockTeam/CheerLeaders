@@ -55,18 +55,18 @@ public class PollController {
         int i;
 
 
-//        for(i=0; i<1000; i++){
-//            int finalI = i;
-//            new Thread(()->{
-//                try {
-//                    pollService.poll(openid+ finalI +"dsfafasfasfasca","132",target);
-//                } catch (ValidException e) {
-//                    e.printStackTrace();
-//                }
-//            }).start();
-//        }
+        for(i=0; i<1000; i++){
+            int finalI = i;
+            new Thread(()->{
+                try {
+                    pollService.poll(openid+ finalI +"dsfafasfasfasca","132",target);
+                } catch (ValidException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
 
-         voter = pollService.poll(openid ,"zzz",target);
+//         voter = pollService.poll(openid ,"zzz",target);
 
         PollResponse pollResponse;
         switch(voter.getPolls()){
