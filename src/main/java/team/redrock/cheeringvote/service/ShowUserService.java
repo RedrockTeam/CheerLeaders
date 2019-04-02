@@ -41,49 +41,62 @@ public class ShowUserService {
             cheerStatus = voter.getTarget();
         }
 
-        String[] statuses = cheerStatus.split(":");
+
         List<Cheer_Status> cheerStatusList = new ArrayList<>();
         for (int i = 1;i<14;i++) {
             Cheer_Status cheer_status = new Cheer_Status(i,0);
             cheerStatusList.add(cheer_status);
         }
-        for (String s: statuses) {
-            Cheer_Status cheer_status = null;
-            switch (s){
-                case "1" :  cheer_status = new Cheer_Status(1,0);
-                     break;
-                case "2" : cheer_status = new Cheer_Status(2,0);
-                    break;
-                case "3" : cheer_status = new Cheer_Status(3,0);
-                    break;
-                case "4" : cheer_status = new Cheer_Status(4,0);
-                    break;
-                case "5" : cheer_status = new Cheer_Status(5,0);
-                    break;
-                case "6" : cheer_status = new Cheer_Status(6,0);
-                    break;
-                case "7" : cheer_status = new Cheer_Status(7,0);
-                    break;
-                case "8" : cheer_status = new Cheer_Status(8,0);
-                    break;
-                case "9" : cheer_status = new Cheer_Status(9,0);
-                    break;
-                case "10" : cheer_status = new Cheer_Status(10,0);
-                    break;
-                case "11" : cheer_status = new Cheer_Status(11,0);
-                    break;
-                case "12" : cheer_status = new Cheer_Status(12,0);
-                    break;
-                case "13" : cheer_status = new Cheer_Status(13,0);
-                    break;
-                default:
-                    log.error("创建状态失败");
-                    throw new ValidException("Index out of bound");
+        if(cheerStatus!=null&&!cheerStatus.equals("")){
+
+            String[] statuses = cheerStatus.split(":");
+            for (String s : statuses) {
+                switch (s) {
+                    case "1":
+                        cheerStatusList.get(0).setStatus(1);
+                        break;
+                    case "2":
+                        cheerStatusList.get(1).setStatus(1);
+                        break;
+                    case "3":
+                        cheerStatusList.get(2).setStatus(1);
+                        break;
+                    case "4":
+                        cheerStatusList.get(3).setStatus(1);
+                        break;
+                    case "5":
+                        cheerStatusList.get(4).setStatus(1);
+                        break;
+                    case "6":
+                        cheerStatusList.get(5).setStatus(1);
+                        break;
+                    case "7":
+                        cheerStatusList.get(6).setStatus(1);
+                        break;
+                    case "8":
+                        cheerStatusList.get(7).setStatus(1);
+                        break;
+                    case "9":
+                        cheerStatusList.get(8).setStatus(1);
+                        break;
+                    case "10":
+                        cheerStatusList.get(9).setStatus(1);
+                        break;
+                    case "11":
+                        cheerStatusList.get(10).setStatus(1);
+                        break;
+                    case "12":
+                        cheerStatusList.get(11).setStatus(1);
+                        break;
+                    case "13":
+                        cheerStatusList.get(12).setStatus(1);
+                        break;
+                    default:
+                        break;
+
+                }
+
             }
-            if(Integer.parseInt(s)==cheer_status.getCode()){
-                cheer_status.setStatus(1);
-            }
-            cheerStatusList.add(cheer_status);
         }
 //        int poll = (int) pollRedisTemplate.opsForHash().get("Voter",openid);
 

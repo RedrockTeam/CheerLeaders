@@ -12,7 +12,7 @@ import team.redrock.cheeringvote.bean.Voter;
 @Transactional
 public interface UserMapper {
 
-    @Insert("Insert into users (openid,nickname,polls) value(#{openid},#{nickname},#{polls},#{pollstatus}) ON DUPLICATE KEY UPDATE openid=#{openid},polls=#{polls}")
+    @Insert("Insert into users (openid,nickname,polls,pollstatus) value(#{openid},#{nickname},#{polls},#{pollstatus}) ON DUPLICATE KEY UPDATE openid=#{openid},polls=#{polls},pollstatus = #{pollstatus}")
     int insertUser(@Param("openid") String openid, @Param("nickname") String nickname,@Param("polls") int poll,@Param("pollstatus") String pollStatus );
 
     @Update("Update users set polls  = #{polls} where openid = #{openid}")

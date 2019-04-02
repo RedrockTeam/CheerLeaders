@@ -50,14 +50,13 @@ public class PollController {
     @PostMapping("/cheering_vote/polltest/{target}")
     public PollResponse pollTest(String openid, @PathVariable("target") int target) throws ValidException {
 
-        long s =System.currentTimeMillis();
-        System.out.println(s);
+
         Voter voter = null;
         int i;
 
 
-        for(i=0; i<1000; i++){
-            int finalI = i;
+//        for(i=0; i<1000; i++){
+//            int finalI = i;
 //            new Thread(()->{
 //                try {
 //                    pollService.poll(openid+ finalI +"dsfafasfasfasca","132",target);
@@ -65,9 +64,10 @@ public class PollController {
 //                    e.printStackTrace();
 //                }
 //            }).start();
-        }
+//        }
 
-        System.out.println(System.currentTimeMillis()-s);
+         voter = pollService.poll(openid ,"zzz",target);
+
         PollResponse pollResponse;
         switch(voter.getPolls()){
             case -1 : pollResponse = new PollResponse(-1,"票数已用完",voter);

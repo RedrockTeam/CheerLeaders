@@ -61,9 +61,15 @@ public class PollService {
             }else{
 
                 poll = voter.getPolls();
-                cheerStatus = voter.getTarget()+":"+String.valueOf(target);
-            }
+                if(voter.getTarget()==null||voter.getTarget().equals("")){
+                    cheerStatus = String.valueOf(target);
+                }else{
+                    cheerStatus = voter.getTarget()+":"+String.valueOf(target);
+                }
 
+                System.out.println(cheerStatus);
+
+            }
 
                   if(poll<0||poll>5){
                 throw new ValidException("Index out of bound");
@@ -80,22 +86,4 @@ public class PollService {
         return new Voter(nickname,poll-1,String.valueOf(target));
     }
 
-
-////    @Cacheable(value = "Voter",key = "#openid")
-//    public Voter getVoter(String openid){
-//        Voter voter = userMapper.findByOpenid(openid);
-//        System.out.println("调用数据库");
-//        return voter;
-//    }
-//
-////    @CachePut(value = "Voter",key = "#openid")
-//    public Voter insertVoter(String openid,String nickname,int polls) throws ValidException {
-//        int status = userMapper.insertUser(openid,nickname,polls);
-//        if (status ==1 ||status ==2) {
-//            System.out.println("插入数据库");
-//            return new Voter(nickname,polls);
-//        }
-//        throw new ValidException("插入数据失败");
-//
-//    }
 }
