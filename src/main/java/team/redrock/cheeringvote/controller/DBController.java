@@ -15,7 +15,7 @@ public class DBController {
     @Autowired
     private RedisTemplate<String ,Integer> pollRedisTemplate;
     @PostMapping("/cheering_vote/init")
-    public InfoResponse initDB(String secret,String timestamp,String string){
+    public InfoResponse initDB(){
         //加密逻辑
         Map<Object, Object> originMap =  pollRedisTemplate.opsForHash().entries("Cheerleaders");
         if(originMap==null||originMap.isEmpty()) {

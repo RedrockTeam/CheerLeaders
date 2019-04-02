@@ -57,12 +57,11 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
     public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
 
 
-        ClassLoader loader = this.getClass().getClassLoader();
         GenericJackson2JsonRedisSerializer jsonSerializer = new GenericJackson2JsonRedisSerializer();
         RedisSerializationContext.SerializationPair<Object> pair = RedisSerializationContext.SerializationPair.fromSerializer(jsonSerializer);
         RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig().serializeValuesWith(pair);
 
-//        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
+
 
         //user信息缓存配置
         RedisCacheConfiguration userCacheConfiguration = defaultCacheConfig.entryTtl(Duration.ofHours(5)).prefixKeysWith("Voter:");
@@ -77,9 +76,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         defaultCacheConfig.entryTtl(Duration.ofMinutes(30));
         //初始化RedisCacheManager
         RedisCacheManager cacheManager = new RedisCacheManager(redisCacheWriter, defaultCacheConfig, redisCacheConfigurationMap);
-//        RedisCacheManager cacheManager = RedisCacheManager.builder(connectionFactory)
-//                .withInitialCacheConfigurations(redisCacheConfigurationMap)
-//                .cacheDefaults(defaultCacheConfig).build();
+
         return cacheManager;
     }
 }

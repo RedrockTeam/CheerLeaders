@@ -12,6 +12,9 @@ import team.redrock.cheeringvote.exception.ValidException;
 import team.redrock.cheeringvote.pojo.response.PollResponse;
 import team.redrock.cheeringvote.service.AddPollService;
 
+/**
+ * @author 陌花采撷
+ */
 @RestController
 @Slf4j
 public class AddPollController {
@@ -33,6 +36,10 @@ public class AddPollController {
         return pollResponse;
 
     }
+
+
+    //本地方法测试
+
     @PostMapping("/cheering_vote/addtest")
     public PollResponse addPolltest(String openid) throws ValidException {
 

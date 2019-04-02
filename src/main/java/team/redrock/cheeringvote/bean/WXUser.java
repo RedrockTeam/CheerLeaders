@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * @author 陌花采撷
+ */
 @Data
 public class WXUser {
     private String openid;

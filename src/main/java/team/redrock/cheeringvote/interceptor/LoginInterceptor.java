@@ -15,18 +15,17 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * @author 陌花采撷
+ */
 @Slf4j
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 
+    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ValidException {
 
 
-        HttpSession session = request.getSession();
-
-        // 初始化拦截器，设置不拦截路径
-//        String noMatchPath = ".*/(login).*";
-//        String resourcePath = ".*/(file).*";
         String path = request.getServletPath();
 
         String errorPath = ".*/(error).*";
@@ -34,29 +33,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if(path.matches(errorPath)){
             throw new ValidException("Internal Server Error");
         }
-//        if (path.matches(noMatchPath)||path.matches(resourcePath)) {
-
-            // 授权路径，不拦截
-//            return true;
-//        } else if (session.getAttribute("SESSIONID") != null) {
-
-
-//            String token = request.getParameter("token");
-
-
-//            Map<Object, Object> sessionMap =  stringRedisTemplate.opsForHash().entries("SESSIONID");
-//            for (Object sessionId:sessionMap.values() ) {
-//                    if (sessionId != null && sessionId.equals(session.getAttribute("SESSIONID"))) {
-//                        System.out.println("sessionId =="+sessionId);
-//                        stringRedisTemplate.expire("SESSIONID",30, TimeUnit.MINUTES);
-//                        return true;
-//                    }
-//            }
-
-//        }
-
-//        log.info("ZLOG==>SESSIONID:"+session.getAttribute("SESSIONID"));
-//        throw new ValidException("token验证无效");
 
         return true;
     }

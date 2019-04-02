@@ -15,21 +15,20 @@ import team.redrock.cheeringvote.pojo.response.ShowVoterResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 陌花采撷
+ */
 @Service
 @Slf4j
 public class ShowUserService {
     @Autowired
     CacheService cacheService;
-    @Autowired
-    private RedisTemplate<String,Integer> pollRedisTemplate;
+
     public ShowVoterResponse showPoll(String openid, String nickname) throws ValidException {
         if(openid.equals("")){
             throw new ValidException("Fail to get openid");
         }
-//        if(pollRedisTemplate.opsForHash().get("Voter",openid)==null){
-//            pollRedisTemplate.opsForHash().put("Voter",openid,5);
-//            log.info("add a new user");
-//        }
+
         int poll = 0;
         String cheerStatus = null;
         Voter voter = cacheService.getVoter(openid);
@@ -98,8 +97,6 @@ public class ShowUserService {
 
             }
         }
-//        int poll = (int) pollRedisTemplate.opsForHash().get("Voter",openid);
-
 
         return new ShowVoterResponse(200,"success",new ShowVoter(nickname,poll,cheerStatusList));
     }

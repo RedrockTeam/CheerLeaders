@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import team.redrock.cheeringvote.exception.ValidException;
 import team.redrock.cheeringvote.pojo.response.ErrorResponse;
 
+/**
+ * @author 陌花采撷
+ */
 @ControllerAdvice
 @ResponseBody
 public class ExceptionHandlerAdvice {

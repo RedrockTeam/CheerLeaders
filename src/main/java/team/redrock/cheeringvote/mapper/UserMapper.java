@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import team.redrock.cheeringvote.bean.Voter;
 
+/**
+ * @author 陌花采撷
+ */
 @Mapper
 @Repository
 @Transactional

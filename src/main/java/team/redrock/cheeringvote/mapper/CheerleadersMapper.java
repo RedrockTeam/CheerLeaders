@@ -8,6 +8,9 @@ import team.redrock.cheeringvote.bean.Cheerleader;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author 陌花采撷
+ */
 @Mapper
 @Repository
 @Transactional

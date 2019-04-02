@@ -16,6 +16,7 @@ import team.redrock.cheeringvote.service.PollService;
 /***
  * https://wx.idsbllp.cn/game/api/index.php?redirect=http://cds5rf.natappfree.cc/poll/1
  * https://wx.idsbllp.cn/game/api/index.php?redirect=http://cds5rf.natappfree.cc/test
+ * @author 陌花采撷
  */
 
 @RestController
@@ -46,6 +47,7 @@ public class PollController {
         return pollResponse;
 
 }
+    //本地测试方法
 
     @PostMapping("/cheering_vote/polltest/{target}")
     public PollResponse pollTest(String openid, @PathVariable("target") int target) throws ValidException {
@@ -66,7 +68,6 @@ public class PollController {
             }).start();
         }
 
-//         voter = pollService.poll(openid ,"zzz",target);
 
         PollResponse pollResponse;
         switch(voter.getPolls()){

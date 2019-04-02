@@ -9,6 +9,9 @@ import team.redrock.cheeringvote.bean.Voter;
 import team.redrock.cheeringvote.exception.ValidException;
 import team.redrock.cheeringvote.mapper.UserMapper;
 
+/**
+ * @author 陌花采撷
+ */
 @Service
 public class CacheService {
 

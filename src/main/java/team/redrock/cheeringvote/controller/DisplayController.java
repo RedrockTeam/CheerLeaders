@@ -16,6 +16,9 @@ import team.redrock.cheeringvote.service.DisplayService;
 import team.redrock.cheeringvote.service.ShowUserService;
 import team.redrock.cheeringvote.utils.SHAUtil;
 
+/**
+ * @author 陌花采撷
+ */
 @RestController
 @Slf4j
 public class DisplayController {
@@ -55,6 +58,7 @@ public class DisplayController {
         return pollResponse;
     }
 
+//本地方法测试类
 
     @PostMapping("/cheering_vote/displaytest")
     public ShowVoterResponse pollTest(String openid, String nickname) throws ValidException {

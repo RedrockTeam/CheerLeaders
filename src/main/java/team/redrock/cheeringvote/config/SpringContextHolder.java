@@ -6,6 +6,9 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
 
 
+/**
+ * @author 陌花采撷
+ */
 @Configuration
 public class SpringContextHolder implements ApplicationContextAware {
 

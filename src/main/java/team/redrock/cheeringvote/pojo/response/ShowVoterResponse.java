@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.redrock.cheeringvote.bean.ShowVoter;
-import team.redrock.cheeringvote.bean.Voter;
 
 
+
+/**
+ * @author 陌花采撷
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

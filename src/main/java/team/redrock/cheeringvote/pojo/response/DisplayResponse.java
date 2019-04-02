@@ -8,6 +8,9 @@ import team.redrock.cheeringvote.bean.Cheerleader;
 import java.util.List;
 
 
+/**
+ * @author 陌花采撷
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

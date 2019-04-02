@@ -12,6 +12,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import team.redrock.cheeringvote.config.SpringContextHolder;
 
+/**
+ * @author 陌花采撷
+ */
 @EnableScheduling
 @MapperScan("team.redrock.cheeringvote.mapper")
 @SpringBootApplication
