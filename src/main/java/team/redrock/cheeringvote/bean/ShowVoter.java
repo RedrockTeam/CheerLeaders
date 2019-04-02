@@ -15,6 +15,8 @@ import java.util.List;
 @Data
 public class ShowVoter {
         private String nickname;
+        private int collage_id;
+        private String collage;
         private int polls;
         private List<Cheer_Status> cheer_status;
 }

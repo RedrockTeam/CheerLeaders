@@ -16,6 +16,9 @@ import team.redrock.cheeringvote.service.DisplayService;
 import team.redrock.cheeringvote.service.ShowUserService;
 import team.redrock.cheeringvote.utils.SHAUtil;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+
 /**
  * @author 陌花采撷
  */
@@ -54,7 +57,14 @@ public class DisplayController {
             return new ShowVoterResponse(-1,"请先关注公众号",null);
         }
 
-        ShowVoterResponse pollResponse = showUserService.showPoll(openid,nickname);
+        ShowVoterResponse pollResponse = null;
+        try {
+            pollResponse = showUserService.showPoll(openid,nickname);
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         return pollResponse;
     }
 
@@ -62,7 +72,14 @@ public class DisplayController {
 
     @PostMapping("/cheering_vote/displaytest")
     public ShowVoterResponse pollTest(String openid, String nickname) throws ValidException {
-        ShowVoterResponse pollResponse = showUserService.showPoll(openid,nickname);
+        ShowVoterResponse pollResponse = null;
+        try {
+            pollResponse = showUserService.showPoll(openid,nickname);
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         return pollResponse;
     }
 }

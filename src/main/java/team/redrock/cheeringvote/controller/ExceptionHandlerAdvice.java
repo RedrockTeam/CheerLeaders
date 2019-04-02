@@ -15,11 +15,17 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(ValidException.class)
     public ErrorResponse handleException(ValidException e) {
         String msg =  e.getMessage();
-        if(msg.equals("Fail to get openid")||msg.equals("Fail to get total cheerleaders")){
+        if(msg.equals("Fail to authorize")){
             return new ErrorResponse(416, e.getMessage());
         }
+        if(msg.equals("Fail to get total cheerleaders")){
+            return new ErrorResponse(417,e.getMessage());
+        }
+        if("Fail to get openid".equals(msg)){
+            return new ErrorResponse(418, e.getMessage());
+        }
         if(msg.equals("Index out of bound")){
-            return new ErrorResponse(417, e.getMessage());
+            return new ErrorResponse(419, e.getMessage());
         }
 
 

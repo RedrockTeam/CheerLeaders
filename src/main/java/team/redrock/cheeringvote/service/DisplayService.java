@@ -19,22 +19,6 @@ import java.util.Map;
 @Service
 @Slf4j
 public class DisplayService {
-    //1 通信
-    //2 计算机
-    //3 自动化
-    //4 光电
-    //5 经管
-    //6 外国语
-    //7 生物
-    //8 传媒
-    //9 信安
-    //10 体育
-    //11 理学院
-    //12 软件
-    //13 先进
-    //14 国际
-    //15 现代邮政学院
-    //16 国际半导体学院
 
     @Autowired
     private RedisTemplate<String ,Integer> pollRedisTemplate;
@@ -56,7 +40,7 @@ public class DisplayService {
                     break;
                 case 2: cheerleader = new Cheerleader(2,"computing", (Integer) i.getValue());
                     break;
-                case 3: cheerleader = new Cheerleader(3,"Automation", (Integer) i.getValue());
+                case 3: cheerleader = new Cheerleader(3,"automation", (Integer) i.getValue());
                     break;
                 case 4: cheerleader = new Cheerleader(4,"advanced_manufacturing", (Integer) i.getValue());
                     break;
@@ -76,7 +60,7 @@ public class DisplayService {
                     break;
                 case 12: cheerleader = new Cheerleader(12,"international", (Integer) i.getValue());
                     break;
-                case 13: cheerleader = new Cheerleader(13,"Cyberspace_security", (Integer) i.getValue());
+                case 13: cheerleader = new Cheerleader(13,"cyberspace_security", (Integer) i.getValue());
                     break;
                 default:  log.error("ZLOG==>get wrong switch param !");
                     break;
