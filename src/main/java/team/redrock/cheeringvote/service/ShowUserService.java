@@ -112,20 +112,9 @@ public class ShowUserService {
         HttpUtil httpUtil = new HttpUtil();
         String collage = null;
         int collage_id = 0;
-        JSONObject  data = null;
         JSONObject jsonObject = httpUtil.httpRequestToString(url+openid,"GET",null);
-        if(jsonObject!=null) {
-            int status = jsonObject.getInteger("status");
-            switch (status) {
-                case 200:
-                    data = jsonObject.getJSONObject("data");
-                    break;
-                default:
-                    log.error("暂未绑定");
-                    throw new ValidException("Fail to get openid");
 
-            }
-            collage = data.getString("collage");
+            collage = jsonObject.getString("collage");
 
             String head = collage.substring(0, 1);
             switch (head) {
@@ -188,7 +177,6 @@ public class ShowUserService {
                     log.error(collage);
                     collage_id = 0;
             }
-        }
 
         return new ShowVoterResponse(200,"success",new ShowVoter(nickname,collage_id,collage,poll,cheerStatusList));
     }

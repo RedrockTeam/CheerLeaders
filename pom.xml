@@ -20,6 +20,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.41</version>
@@ -59,6 +63,25 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+    <profile>
+        <!-- 开发环境 -->
+        <id>dev</id>
+        <properties>
+            <environment>dev</environment><!-- 节点名字environment是自己随意取的 -->
+        </properties>
+        <activation>
+            <activeByDefault>true</activeByDefault><!-- 默认激活该profile节点-->
+        </activation>
+    </profile>
+        <profile>
+            <!-- 生产环境 -->
+            <id>prod</id>
+            <properties>
+                <environment>prod</environment>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

@@ -1,6 +1,7 @@
 package team.redrock.cheeringvote.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,11 +18,18 @@ public class DBController {
     @PostMapping("/cheering_vote/init")
     public InfoResponse initDB(){
         //加密逻辑
+
         Map<Object, Object> originMap =  pollRedisTemplate.opsForHash().entries("Cheerleaders");
         if(originMap==null||originMap.isEmpty()) {
+            //本校投票
             for(int i=1;i<14;i++)
             {
                 originMap.put(i,0);
+            }
+            //非本校投票
+            for(int i=1;i<14;i++)
+            {
+                originMap.put(i+100,0);
             }
             pollRedisTemplate.opsForHash().putAll("Cheerleaders",originMap);
             return new InfoResponse(200,"success");

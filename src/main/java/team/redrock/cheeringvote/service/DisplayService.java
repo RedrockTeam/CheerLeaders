@@ -31,40 +31,45 @@ public class DisplayService {
 
         Map<Object, Object> cheerleadersMap = new HashMap<>();
         cheerleadersMap = pollRedisTemplate.opsForHash().entries("Cheerleaders");
-        if(cheerleadersMap.size()!=13){
+        if(cheerleadersMap.size()!=26){
             throw new ValidException("Fail to get total cheerleaders ");
-        }
-        for (Map.Entry<Object,Object> i: cheerleadersMap.entrySet() ) {
+    }
+
+        for (Map.Entry<Object,Object> i: cheerleadersMap.entrySet()) {
+
             switch((int)i.getKey()){
-                case 1:  cheerleader = new Cheerleader(1,"telecommunication", (Integer) i.getValue());
+                case 1:
+                    cheerleader = new Cheerleader(1,"telecommunication", (Integer) i.getValue(), (Integer) cheerleadersMap.get(101));
                     break;
-                case 2: cheerleader = new Cheerleader(2,"computing", (Integer) i.getValue());
+                case 2: cheerleader = new Cheerleader(2,"computing", (Integer) i.getValue(),(Integer) cheerleadersMap.get(102));
                     break;
-                case 3: cheerleader = new Cheerleader(3,"automation", (Integer) i.getValue());
+                case 3: cheerleader = new Cheerleader(3,"automation", (Integer) i.getValue(),(Integer) cheerleadersMap.get(103));
                     break;
-                case 4: cheerleader = new Cheerleader(4,"advanced_manufacturing", (Integer) i.getValue());
+                case 4: cheerleader = new Cheerleader(4,"advanced_manufacturing", (Integer) i.getValue(),(Integer) cheerleadersMap.get(104));
                     break;
-                case 5: cheerleader = new Cheerleader(5,"photoelectricity", (Integer) i.getValue());
+                case 5: cheerleader = new Cheerleader(5,"photoelectricity", (Integer) i.getValue(),(Integer) cheerleadersMap.get(105));
                     break;
-                case 6: cheerleader = new Cheerleader(6,"software", (Integer) i.getValue());
+                case 6: cheerleader = new Cheerleader(6,"software", (Integer) i.getValue(),(Integer) cheerleadersMap.get(106));
                     break;
-                case 7: cheerleader = new Cheerleader(7,"bioinformatics", (Integer) i.getValue());
+                case 7: cheerleader = new Cheerleader(7,"bioinformatics", (Integer) i.getValue(),(Integer) cheerleadersMap.get(107));
                     break;
-                case 8: cheerleader = new Cheerleader(8,"science", (Integer) i.getValue());
+                case 8: cheerleader = new Cheerleader(8,"science", (Integer) i.getValue(),(Integer) cheerleadersMap.get(108));
                     break;
-                case 9: cheerleader = new Cheerleader(9,"economic_management", (Integer) i.getValue());
+                case 9: cheerleader = new Cheerleader(9,"economic_management", (Integer) i.getValue(),(Integer) cheerleadersMap.get(109));
                     break;
-                case 10: cheerleader = new Cheerleader(10,"media_arts", (Integer) i.getValue());
+                case 10: cheerleader = new Cheerleader(10,"media_arts", (Integer) i.getValue(),(Integer) cheerleadersMap.get(110));
                     break;
-                case 11: cheerleader = new Cheerleader(11,"foreign_languages", (Integer) i.getValue());
+                case 11: cheerleader = new Cheerleader(11,"foreign_languages", (Integer) i.getValue(),(Integer) cheerleadersMap.get(111));
                     break;
-                case 12: cheerleader = new Cheerleader(12,"international", (Integer) i.getValue());
+                case 12: cheerleader = new Cheerleader(12,"international", (Integer) i.getValue(),(Integer) cheerleadersMap.get(112));
                     break;
-                case 13: cheerleader = new Cheerleader(13,"cyberspace_security", (Integer) i.getValue());
+                case 13: cheerleader = new Cheerleader(13,"cyberspace_security", (Integer) i.getValue(),(Integer) cheerleadersMap.get(113));
                     break;
-                default:  log.error("ZLOG==>get wrong switch param !");
+
+                default:
                     break;
             }
+
             cheerleaderList.add(cheerleader);
             sum += (Integer) i.getValue();
         }

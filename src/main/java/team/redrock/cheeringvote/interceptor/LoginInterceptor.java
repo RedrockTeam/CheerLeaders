@@ -29,7 +29,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String path = request.getServletPath();
 
         String errorPath = ".*/(error).*";
-
+        String resourcePath = ".*/(pic).*";
+        if(path.matches(resourcePath)){
+            return true;
+        }
         if(path.matches(errorPath)){
             throw new ValidException("Internal Server Error");
         }

@@ -43,7 +43,7 @@ public class DisplayController {
     }
 
     @GetMapping("/cheering_vote/showUserPoll")
-    public ShowVoterResponse disppalyUser(WXUser wxUser) throws ValidException {
+    public ShowVoterResponse dispplayUser(WXUser wxUser) throws ValidException {
 
         if(wxUser==null){
             log.error("ZLOG==>Fail to authorize");

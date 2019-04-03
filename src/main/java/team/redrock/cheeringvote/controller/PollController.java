@@ -12,6 +12,9 @@ import team.redrock.cheeringvote.exception.ValidException;
 import team.redrock.cheeringvote.pojo.response.PollResponse;
 import team.redrock.cheeringvote.service.PollService;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+
 
 /***
  * https://wx.idsbllp.cn/game/api/index.php?redirect=http://cds5rf.natappfree.cc/poll/1
@@ -26,7 +29,7 @@ public class PollController {
     @Autowired
     PollService pollService;
     @GetMapping("/cheering_vote/poll/{target}")
-    public PollResponse getPoll(WXUser wxUser, @PathVariable("target") int target) throws ValidException {
+    public PollResponse getPoll(WXUser wxUser, @PathVariable("target") int target) throws ValidException, NoSuchProviderException, NoSuchAlgorithmException {
         if(wxUser==null){
             log.error("ZLOG==>Fail to authorize");
             throw new ValidException("Fail to authorize");
@@ -50,7 +53,7 @@ public class PollController {
     //本地测试方法
 
     @PostMapping("/cheering_vote/polltest/{target}")
-    public PollResponse pollTest(String openid, @PathVariable("target") int target) throws ValidException {
+    public PollResponse pollTest(String openid, @PathVariable("target") int target) throws ValidException, NoSuchProviderException, NoSuchAlgorithmException {
 
 
         Voter voter = null;
@@ -59,14 +62,19 @@ public class PollController {
 
         for(i=0; i<1000; i++){
             int finalI = i;
-            new Thread(()->{
-                try {
-                    pollService.poll(openid+ finalI +"dsfafasfasfasca","132",target);
-                } catch (ValidException e) {
-                    e.printStackTrace();
-                }
-            }).start();
+//            new Thread(()->{
+//                try {
+//                    pollService.poll(openid+ finalI +"dsfafasfasfasca","132",target);
+//                } catch (ValidException e) {
+//                    e.printStackTrace();
+//                } catch (NoSuchAlgorithmException e) {
+//                    e.printStackTrace();
+//                } catch (NoSuchProviderException e) {
+//                    e.printStackTrace();
+//                }
+//            }).start();
         }
+        voter = pollService.poll(openid,"zzz",target);
 
 
         PollResponse pollResponse;

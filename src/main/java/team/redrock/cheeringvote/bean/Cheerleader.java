@@ -14,5 +14,6 @@ import lombok.NoArgsConstructor;
 public class Cheerleader {
     private int code;
     private String collage;
-    private int polls;
+    private int polls_self;
+    private int polls_other;
 }

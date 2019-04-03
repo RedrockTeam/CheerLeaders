@@ -23,7 +23,7 @@ public class InterceptorsConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //拦截所有的controller
-        registry.addInterceptor(loginInterceptor()).addPathPatterns("/**").addPathPatterns("/cheering_vote");
+        registry.addInterceptor(loginInterceptor()).addPathPatterns("/**").addPathPatterns("/cheering_vote").excludePathPatterns("/pic/**");
     }
 
 }

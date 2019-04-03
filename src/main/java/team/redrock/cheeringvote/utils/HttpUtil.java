@@ -3,6 +3,7 @@ package team.redrock.cheeringvote.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import team.redrock.cheeringvote.exception.ValidException;
 
@@ -18,9 +19,10 @@ import java.util.Map;
  * @author 陌花采撷
  */
 @Component
+@Slf4j
 public class HttpUtil {
 
-    public  JSONObject httpRequestToString(String path, String method, String body) throws NoSuchProviderException, NoSuchAlgorithmException {
+    public  JSONObject httpRequestToString(String path, String method, String body) throws NoSuchProviderException, NoSuchAlgorithmException, ValidException {
         if (path == null || method == null) {
             return null;
         }
@@ -81,7 +83,20 @@ public class HttpUtil {
                 e.printStackTrace();
             }
         }
-        return jsonObject;
+        JSONObject  data = null;
+        if(jsonObject!=null) {
+            int status = jsonObject.getInteger("status");
+            switch (status) {
+                case 200:
+                    data = jsonObject.getJSONObject("data");
+                    break;
+                default:
+                    log.error("暂未绑定");
+                    throw new ValidException("Fail to get openid");
+
+            }
+        }
+        return data;
 
     }
 
