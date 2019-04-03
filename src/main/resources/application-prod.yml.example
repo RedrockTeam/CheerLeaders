@@ -1,0 +1,11 @@
+server:
+  port: 81
+
+spring:
+  datasource:
+    url:
+    username: REDROCK_CORE_DB_USERNAME
+    password: REDROCK_CORE_DB_PASSWORD
+
+  redis:
+    host:

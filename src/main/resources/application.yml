@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: prod
+
+  redis.:
+    port: 6379
+    database: 11
+    password:
+    timeout: 1s
+    jedis:
+      pool:
+        max-wait: 1000ms
+        max-active: 10000
+        min-idle: 2
+        max-idle: 1000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: team.redrock.cheeringvote.bean
+
+
+getStuInfoUrl: https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/UserCenter/UserCenter/getStuInfoByOpenId&openId=
