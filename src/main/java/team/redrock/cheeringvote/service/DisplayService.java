@@ -40,37 +40,48 @@ public class DisplayService {
             switch((int)i.getKey()){
                 case 1:
                     cheerleader = new Cheerleader(1,"telecommunication", (Integer) i.getValue(), (Integer) cheerleadersMap.get(101));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 2: cheerleader = new Cheerleader(2,"computing", (Integer) i.getValue(),(Integer) cheerleadersMap.get(102));
-                    break;
+                    cheerleaderList.add(cheerleader);
+                     break;
                 case 3: cheerleader = new Cheerleader(3,"automation", (Integer) i.getValue(),(Integer) cheerleadersMap.get(103));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 4: cheerleader = new Cheerleader(4,"advanced_manufacturing", (Integer) i.getValue(),(Integer) cheerleadersMap.get(104));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 5: cheerleader = new Cheerleader(5,"photoelectricity", (Integer) i.getValue(),(Integer) cheerleadersMap.get(105));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 6: cheerleader = new Cheerleader(6,"software", (Integer) i.getValue(),(Integer) cheerleadersMap.get(106));
-                    break;
+                    cheerleaderList.add(cheerleader);
+                     break;
                 case 7: cheerleader = new Cheerleader(7,"bioinformatics", (Integer) i.getValue(),(Integer) cheerleadersMap.get(107));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 8: cheerleader = new Cheerleader(8,"science", (Integer) i.getValue(),(Integer) cheerleadersMap.get(108));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 9: cheerleader = new Cheerleader(9,"economic_management", (Integer) i.getValue(),(Integer) cheerleadersMap.get(109));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 10: cheerleader = new Cheerleader(10,"media_arts", (Integer) i.getValue(),(Integer) cheerleadersMap.get(110));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 11: cheerleader = new Cheerleader(11,"foreign_languages", (Integer) i.getValue(),(Integer) cheerleadersMap.get(111));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 12: cheerleader = new Cheerleader(12,"international", (Integer) i.getValue(),(Integer) cheerleadersMap.get(112));
+                    cheerleaderList.add(cheerleader);
                     break;
                 case 13: cheerleader = new Cheerleader(13,"cyberspace_security", (Integer) i.getValue(),(Integer) cheerleadersMap.get(113));
+                    cheerleaderList.add(cheerleader);
                     break;
-
                 default:
                     break;
             }
 
-            cheerleaderList.add(cheerleader);
             sum += (Integer) i.getValue();
         }
 
