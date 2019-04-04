@@ -40,18 +40,27 @@ public class PollService {
         if(openid.equals("")){
             throw new ValidException("Fail to get openid");
         }
-    int poll = 0;
+         int poll = 0;
         String cheerStatus = null;
 
-            Voter voter = cacheService.getVoter(openid);
+        int collage_id = 0;
+        HttpUtil httpUtil = new HttpUtil();
+        System.out.println("网络请求接口时间"+(System.currentTimeMillis()-s));
+        s= System.currentTimeMillis();
+        JSONObject data;
+        synchronized (this){
+            data = httpUtil.httpRequestToString(url+openid,"GET",null);
+        }
+        System.out.println("同步时间"+(System.currentTimeMillis()-s));
+        s= System.currentTimeMillis();
 
+            Voter voter = cacheService.getVoter(openid);
             if(voter==null){
                 cacheService.insertVoter(openid,nickname,5,"");
                 poll = 5;
                 cheerStatus = String.valueOf(target);
                 log.info("add a new user in function");
             }else{
-
                 poll = voter.getPolls();
                 if(voter.getTarget()==null||voter.getTarget().equals("")){
                     cheerStatus = String.valueOf(target);
@@ -67,19 +76,7 @@ public class PollService {
             }
             if(poll >0){
                 String collage = null;
-                int collage_id = 0;
-                HttpUtil httpUtil = new HttpUtil();
-                System.out.println("网络请求接口时间"+(System.currentTimeMillis()-s));
-                s= System.currentTimeMillis();
-                JSONObject data;
-                synchronized (this){
-                    data = httpUtil.httpRequestToString(url+openid,"GET",null);
-                }
-                System.out.println("同步时间"+(System.currentTimeMillis()-s));
-                s= System.currentTimeMillis();
-
                 collage = data.getString("collage");
-
                 String head = collage.substring(0, 1);
                 switch (head) {
                     case "通":

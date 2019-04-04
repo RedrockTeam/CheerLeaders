@@ -41,7 +41,7 @@ public class Schedule {
 
     }
 
-    @Scheduled(cron = "0 0/1 10 * * *")
+    @Scheduled(cron = "0 0 2 * * *")
     public void dataPersist(){
         log.info("to data persistence");
 

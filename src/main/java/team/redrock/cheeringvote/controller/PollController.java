@@ -74,7 +74,7 @@ public class PollController {
 //                }
 //            }).start();
         }
-        voter = pollService.poll(openid,"zzz",target);
+        voter = pollService.poll(openid,"\uD83D\uDE0D",target);
 
 
         PollResponse pollResponse;
