@@ -35,7 +35,6 @@ public class PollService {
 
     public Voter poll(String openid, String nickname, int target) throws ValidException, NoSuchProviderException, NoSuchAlgorithmException {
 
-        long s = System.currentTimeMillis();
 
         if(openid.equals("")){
             throw new ValidException("Fail to get openid");
@@ -45,14 +44,10 @@ public class PollService {
 
         int collage_id = 0;
         HttpUtil httpUtil = new HttpUtil();
-        System.out.println("网络请求接口时间"+(System.currentTimeMillis()-s));
-        s= System.currentTimeMillis();
         JSONObject data;
         synchronized (this){
             data = httpUtil.httpRequestToString(url+openid,"GET",null);
         }
-        System.out.println("同步时间"+(System.currentTimeMillis()-s));
-        s= System.currentTimeMillis();
 
             Voter voter = cacheService.getVoter(openid);
             if(voter==null){
@@ -69,8 +64,6 @@ public class PollService {
                 }
             }
 
-        System.out.println(System.currentTimeMillis()-s);
-            s = System.currentTimeMillis();
                   if(poll<0||poll>5){
                 throw new ValidException("Index out of bound");
             }
@@ -139,8 +132,6 @@ public class PollService {
                         collage_id = 0;
                 }
 
-                System.out.println("核心处理时间"+(System.currentTimeMillis()-s));
-                s= System.currentTimeMillis();
                 synchronized (this){
                 if(collage_id==target){
                     pollRedisTemplate.opsForHash().increment("Cheerleaders",target,1);
@@ -149,7 +140,7 @@ public class PollService {
                 }
                     cacheService.insertVoter(openid,nickname,poll-1,cheerStatus);
                 }
-                System.out.println("第二次同步时间"+(System.currentTimeMillis()-s));
+
 
         }else{
 

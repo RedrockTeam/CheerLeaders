@@ -52,8 +52,8 @@ public class PollController {
 }
     //本地测试方法
 
-    @PostMapping("/cheering_vote/polltest/{target}")
-    public PollResponse pollTest(String openid, @PathVariable("target") int target) throws ValidException, NoSuchProviderException, NoSuchAlgorithmException {
+    @PostMapping("/cheering_vote/polltest/{target}/{nickname}")
+    public PollResponse pollTest(String openid, @PathVariable("target") int target,@PathVariable("nickname") String nickname) throws ValidException, NoSuchProviderException, NoSuchAlgorithmException {
 
 
         Voter voter = null;
@@ -74,7 +74,7 @@ public class PollController {
 //                }
 //            }).start();
         }
-        voter = pollService.poll(openid,"\uD83D\uDE0D",target);
+        voter = pollService.poll(openid,"\uD83D\uDE0B",target);
 
 
         PollResponse pollResponse;

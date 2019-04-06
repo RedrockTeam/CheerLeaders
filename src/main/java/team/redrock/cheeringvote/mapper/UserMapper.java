@@ -16,7 +16,7 @@ import team.redrock.cheeringvote.bean.Voter;
 public interface UserMapper {
 
     @Insert("Insert into users (openid,nickname,polls,pollstatus) value(#{openid},#{nickname},#{polls},#{pollstatus}) ON DUPLICATE KEY UPDATE openid=#{openid},polls=#{polls},pollstatus = #{pollstatus}")
-    int insertUser(@Param("openid") String openid, @Param("nickname") String nickname,@Param("polls") int poll,@Param("pollstatus") String pollStatus );
+    int insertUser(@Param("openid") String openid, @Param(value = "nickname") String nickname,@Param("polls") int poll,@Param("pollstatus") String pollStatus );
 
     @Update("Update users set polls  = #{polls} where openid = #{openid}")
     int updatePoll(@Param("openid") String openid,@Param("polls") int polls);
