@@ -103,6 +103,14 @@
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
                         </resource>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <includes>
+                                <include>application.yml</include>
+                                <include>application-dev.yml</include>
+                                <include>application-prod.yml</include>
+                            </includes>
+                        </resource>
                     </resources>
                 </configuration>
             </plugin>

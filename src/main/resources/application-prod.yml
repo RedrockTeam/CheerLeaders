@@ -7,6 +7,6 @@ spring:
   datasource:
     hikari:
       connection-init-sql: SET NAMES utf8mb4
-    url: jdbc:mysql://${REDROCK_CORE_DB_HOST}:${REDROCK_CORE_DB_PORT}/cheer_vote?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://${REDROCK_CORE_DB_HOST}:${REDROCK_CORE_DB_PORT}/cheer_vote??useUnicode=true&useSSL=false&serverTimezone=UTC
     username: ${REDROCK_CORE_DB_USERNAME}
     password: ${REDROCK_CORE_DB_PASSWORD}
