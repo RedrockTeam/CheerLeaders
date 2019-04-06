@@ -1,0 +1,13 @@
+server:
+  port: 81
+
+spring:
+  redis:
+    host: localhost
+  datasource:
+    hikari:
+      connection-init-sql: SET NAMES utf8mb4
+    url: jdbc:mysql://127.0.0.1/cheer_vote?useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password:
+
