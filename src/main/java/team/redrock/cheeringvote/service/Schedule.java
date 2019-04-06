@@ -2,23 +2,16 @@ package team.redrock.cheeringvote.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import team.redrock.cheeringvote.bean.Cheerleader;
-import team.redrock.cheeringvote.bean.Voter;
 import team.redrock.cheeringvote.config.SpringContextHolder;
 import team.redrock.cheeringvote.mapper.CheerleadersMapper;
-import team.redrock.cheeringvote.mapper.UserMapper;
-
 import javax.annotation.Resource;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author 陌花采撷

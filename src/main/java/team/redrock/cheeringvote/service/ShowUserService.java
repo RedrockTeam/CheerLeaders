@@ -1,27 +1,22 @@
 package team.redrock.cheeringvote.service;
 
-import com.alibaba.fastjson.JSON;
+
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import team.redrock.cheeringvote.bean.Cheer_Status;
 import team.redrock.cheeringvote.bean.ShowVoter;
 import team.redrock.cheeringvote.bean.Voter;
 import team.redrock.cheeringvote.exception.ValidException;
-
-import team.redrock.cheeringvote.pojo.response.PollResponse;
 import team.redrock.cheeringvote.pojo.response.ShowVoterResponse;
 import team.redrock.cheeringvote.utils.HttpUtil;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 /**
  * @author 陌花采撷

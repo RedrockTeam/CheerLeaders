@@ -16,7 +16,7 @@ import java.util.Map;
 @Transactional
 public interface CheerleadersMapper {
 
-    @Insert("Insert into cheerleader (collage,polls,id) value(#{collage},#{polls},#{id}) ON DUPLICATE KEY UPDATE id = #{id}")
+    @Insert("Insert into cheerleader (collage,polls,id) value(#{collage},#{polls},#{id}) ON DUPLICATE KEY UPDATE polls = #{polls}")
     void insertCheerLeader(@Param("collage") String collage, @Param("polls") int polls,@Param("id") int id);
 
     @Update("Update cheerleader set polls  = #{polls} where id = #{id}")

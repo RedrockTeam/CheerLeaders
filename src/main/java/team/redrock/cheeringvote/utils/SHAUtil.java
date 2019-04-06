@@ -1,12 +1,7 @@
 package team.redrock.cheeringvote.utils;
 
 import lombok.extern.slf4j.Slf4j;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 @Slf4j
 public class SHAUtil {

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2019-04-06 12:05:34
+Date: 2019-04-06 22:06:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `cheerleader` (
   `collage` varchar(255) DEFAULT NULL,
   `polls` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `cheerleader` (`collage`,`id`) USING BTREE
+  UNIQUE KEY `cheerleader` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------

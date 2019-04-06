@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import team.redrock.cheeringvote.mapper.CheerleadersMapper;
 import team.redrock.cheeringvote.pojo.response.InfoResponse;
 
 
@@ -15,6 +16,8 @@ public class DBController {
 
     @Autowired
     private RedisTemplate<String ,Integer> pollRedisTemplate;
+    @Autowired
+    private CheerleadersMapper cheerleadersMapper;
     @PostMapping("/cheering_vote/init")
     public InfoResponse initDB(){
         //加密逻辑
@@ -47,8 +50,11 @@ public class DBController {
 
         Map<Object, Object> originMap =  pollRedisTemplate.opsForHash().entries("Cheerleaders");
         if(originMap!=null||!originMap.isEmpty()){
+            for(int i =1;i<14;i++){
+                cheerleadersMapper.updatePoll(0,i);
+                cheerleadersMapper.updatePoll(0,i+100);
+            }
             pollRedisTemplate.delete("Cheerleaders");
-
             return new InfoResponse(200,"success");
         }else{
             return new InfoResponse(200,"DB has been deleted");
