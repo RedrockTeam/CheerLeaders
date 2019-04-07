@@ -16,8 +16,7 @@ spring:
         min-idle: 2
 
 
-mybatis:
-  type-aliases-package: team.redrock.cheeringvote.bean
-
-
 getStuInfoUrl: https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/UserCenter/UserCenter/getStuInfoByOpenId&openId=
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: team.redrock.cheeringvote.bean

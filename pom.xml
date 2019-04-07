@@ -70,9 +70,9 @@
         <properties>
             <environment>dev</environment><!-- 节点名字environment是自己随意取的 -->
         </properties>
-        <activation>
-            <activeByDefault>true</activeByDefault><!-- 默认激活该profile节点-->
-        </activation>
+        <!--<activation>-->
+            <!--<activeByDefault>true</activeByDefault>&lt;!&ndash; 默认激活该profile节点&ndash;&gt;-->
+        <!--</activation>-->
     </profile>
         <profile>
             <!-- 生产环境 -->

@@ -16,7 +16,7 @@ import team.redrock.cheeringvote.config.SpringContextHolder;
  * @author 陌花采撷
  */
 @EnableScheduling
-@MapperScan("team.redrock.cheeringvote.mapper")
+@MapperScan("team.redrock.cheeringvote.mybatis")
 @ComponentScan(basePackages = {"team.redrock"})
 @SpringBootApplication
 public class CheeringVoteApplication  extends SpringBootServletInitializer {

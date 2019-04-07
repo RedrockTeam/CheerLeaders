@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.redrock.cheeringvote.mapper.CreateMapper">
+    <update id="createCheeringLeader">
+  CREATE TABLE cheerleader
+  (
+  id int(10) NOT NULL,
+  collage varchar(255) DEFAULT NULL,
+  polls int(10) DEFAULT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY cheerleader (id) USING BTREE
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    </update>
+
+    <update id="createUsers" >
+  CREATE TABLE users (
+  openid varchar(255) NOT NULL,
+  nickname varchar(255) DEFAULT NULL,
+  polls int(10) DEFAULT NULL,
+  pollstatus varchar(255) DEFAULT NULL,
+  PRIMARY KEY (openid),
+  UNIQUE KEY user (openid) USING HASH
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    </update>
+  <update id="dropCheeringLeader">
+DROP TABLE IF EXISTS cheerleader
+  </update>
+  <update id="dropUsers">
+  DROP TABLE IF EXISTS users
+  </update>
+</mapper>

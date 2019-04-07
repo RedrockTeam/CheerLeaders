@@ -24,5 +24,7 @@ public interface CheerleadersMapper {
 
     @Select("Select * from cheerleader where id = #{id}")
     Cheerleader findById(int id);
+    @Update("create table cheerleader")
+    void createCheerLeader();
 
 }

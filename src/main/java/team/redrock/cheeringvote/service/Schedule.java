@@ -27,6 +27,7 @@ public class Schedule {
     CacheService cacheService = SpringContextHolder.getBean(CacheService.class);
     @Resource
     CheerleadersMapper cheerleadersMapper = SpringContextHolder.getBean(CheerleadersMapper.class);
+
     @Scheduled(cron = "0 0 0 * * *")
     public void reflashPoll(){
       log.info("start refresh voters");
