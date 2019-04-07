@@ -3,7 +3,7 @@ server:
 
 spring:
   redis:
-    host: 127.0.0.1
+    host: localhost
   datasource:
     hikari:
       connection-init-sql: SET NAMES utf8mb4

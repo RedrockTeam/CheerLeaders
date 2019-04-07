@@ -27,9 +27,9 @@ public class CheeringVoteApplication  extends SpringBootServletInitializer {
        ApplicationContext applicationContext =  SpringApplication.run(CheeringVoteApplication.class, args);
         SpringContextHolder.setContext(applicationContext);
     }
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-//        return application.sources(CheeringVoteApplication.class);
-//    }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+        return application.sources(CheeringVoteApplication.class);
+    }
 
 }
